@@ -1,0 +1,11 @@
+The Procrustes matching (PM) problem is the problem of finding the optimal rigid motion and labeling of two point sets so that they are as close as possible. 
+Both rigid and non-rigid shape matching problems can be formulated as PM problems. Recently \cite{Haggai} presented a novel convex semi-definite programming relaxation (PM-SDP) for PM which achieves state of the art results on common shape matching benchmarks.
+
+In this paper we analyze the successfulness of PM-SDP in solving PM problems without noise (Exact PM problems). 
+We begin by showing exact PM to be computationally equivalent to the graph isomorphism problem. 
+We demonstrate some natural theoretical properties of the relaxation, and use these properties  to show that for exact PM problems and for (generic) input shapes which are asymmetric or bilaterally symmetric, the relaxation returns a correct solution of PM. 
+We also show that these results can be extended to the almost-exact case.
+
+For symmetric shapes, PM has multiple solutions. Convex relaxations of non-convex problems with multiple solutions always admit unwanted solutions- the convex combination of the correct solutions. 
+To avoid this standard approaches condition the non-convex problem so that it has a unique solution. In contrast, we show that the solutions of PM are the extreme points of the convex solution set of PM-SDP.
+We then suggest a random algorithm which returns a solution of PM with probability one, and return all solutions of PM with equal probability. By repeatingly applying this algorithm all solutions of PM can be obtained. 
