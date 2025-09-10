@@ -1,133 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
- 
-<style>
-    h1 {text-align: center;}
-    h2 {text-align: center;}
-    p {text-align: center;}
-    div {text-align: center;}
-    </style>
-
 <head>
-<meta charset="utf-8">
-<title>Nadav's Homepage</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/jquery.lightbox.css" rel="stylesheet" />
-<link href="css/flexslider.css" rel="stylesheet" />
-<link href="css/templatemo_style.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <title>Nadav's Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/jquery.lightbox.css" rel="stylesheet" />
+  <link href="css/flexslider.css" rel="stylesheet" />
+  <link href="css/templatemo_style.css" rel="stylesheet" />
 
+  <style>
+    h1, h2, h3, p, div { text-align: left; }
+    body { background-color: rgb(0, 174, 255)  !important; }
+    header { background-color: rgb(0, 123, 255) !important; }
+
+	p {
+  	margin-bottom: 0.5rem;   /* reduce from default ~1rem */
+  	line-height: 1.3;        /* tighter line spacing */
+	}
+	
+	a {
+  	color: darkblue !important;
+	}
+
+<!-- Put this CSS in your <head> (inside <style> or your CSS file) -->
+
+  .team-table { max-width: 640px; margin: 0 auto; color: rgb(0, 0, 100); }
+  .team-table td.name { text-align: left; width: 50%; padding-lef: 12px; font-weight: 700; }
+  .team-table td.role { text-align: left; width: 50%; padding-left: 12px; }
+  /* Mobile: stack the columns and center them */
+  @media (max-width: 576px) {
+    .team-table, .team-table tbody, .team-table tr { display: block; width: 100%; }
+    .team-table td.name, .team-table td.role {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 6px 0;
+    }
+  }
+
+
+  </style>
 </head>
-<body style="background-color: rgb(0, 174, 255);">
-<header style="background-color:rgb(0, 123, 255)">
-    <div class="container"></div>
-        <div class="row"></div>
+<body>
 
-            <div class="col-md-3 hidden-xs"></div> 
-            <div class="col-xs-3 col-xs-offset-20 visible-xs"></div>
-            <a href="#" id="mobile_menu"><span class="glyphicon glyphicon-align-justify"></span></a>
-            </div>
-            <div class="col-xs-24 visible-xs" id="mobile_menu_list">
-                <ul>
-					<li><a style="color: rgb(0, 0, 100);" href="#templatemo_about">About</a></li>
-            
-                    <li><a style="color: rgb(0, 0, 100);" href="#publications">Publications</a></li>
-
-                    <li><a style="color: rgb(0, 0, 100);" href="#lecture notes">Lecture Notes</a></li>
-
-                </ul>
-            </div>
-            <div class="col-md-16 col-sm-18 hidden-xs" id="templatemo-nav-bar"></div>
-            <ul class="nav navbar-right">
-					<li><a style="color: rgb(0, 0, 100);" href="#templatemo_about">About</a></li>
-
-                    <li><a style="color: rgb(0, 0, 100);" href="#publications">Publications</a></li>
-
-                    <li><a style="color: rgb(0, 0, 100);" href="#lecture notes">Lecture Notes</a></li>
-
-                </ul>
-            </div>
-        </div>
-    </div>
+<header style="background-color: rgb(0, 0, 250); padding: 1rem;">
+  <h1 style="color: black; margin: 0;">Nadav Dym's homepage </h1>
 </header>
 
-   <section id="templatemo_about">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div id="my_photo" class="col-md-4 col-sm-7 col-xs-24">
-                <img src="images/me_3.jpg" alt="image 1"/>
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-16">
-                <h2 style="color: rgb(0, 0, 100);">Nadav Dym </h2>
-				<p style="color: rgb(0, 0, 100);">
-                    I am a Senior Lecturer (Assistant Professor) in the Technion's faculty of mathematics. My research focuses on applying various mathematical tools for the development and theoretical analysis of  machine learning algorithms.
-				<br>
-				 In the years 2018-2021 I was an Assistant Research Professor at the Department of Mathematics of Duke University,
-                hosted by <a style="color: rgb(76, 0, 255);" href="https://ece.duke.edu/faculty/ingrid-daubechies" target="_blank">Prof. Ingrid Daubechies </a>.
-                 at the Information Initiative at Duke (iiD). </a>
-				</p>
 
-                <section id="publications"> 
-
-				<p>In 2018 I completed my PhD in the Department of Computer Science and Applied Mathematics at the Weizmann Institute of Science under the supervision of
-				<a style="color: rgb(76, 0, 255);" href="http://www.wisdom.weizmann.ac.il/~ylipman/" target="_blank">Prof. Yaron Lipman</a>.
-				<br>
-				</p>
-				<p style="color: rgb(0, 0, 100);">
-				<b>Email:</b> nadavdym (at) technion.ac.il <br>
-				</p>
-               
-            </div>
-        </div>
+<section id="templatemo_about" class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="images/me_3.jpg" alt="Nadav Dym" class="img-fluid" />
     </div>
-</section>
-
-
-    <h2 style="color: rgb(0, 0, 100);">Publications</h2>
-    <p style="color: rgb(0, 0, 100);">see my <a style="color: rgb(76, 0, 255);" href="https://scholar.google.co.il/citations?user=qOyXmMYAAAAJ&hl=iw" target="_blank">google scholar</a> webpage </p>
-    
-</section>
+    <div class="col-md-8">
+<!--      <h2 style="color: rgb(0, 0, 100);">Nadav Dym</h2> -->
+<!--      <p style="color: rgb(0, 0, 100);">. -->
+<p>
+        I am a Senior Lecturer (Assistant Professor) in the Technion's faculty of mathematics. 
+        My research focuses on applying various mathematical tools for the development and 
+        theoretical analysis of machine learning algorithms, with a focus on group equivariant learning and graph neural networks. 
+      </p>
+      <p style="color: rgb(0, 0, 100);">
+        In the years 2018–2021 I was an Assistant Research Professor at Duke University, 
+        hosted by 
+        <a href="https://ece.duke.edu/faculty/ingrid-daubechies" target="_blank">Prof. Ingrid Daubechies</a>.
  
-
-<br>
-<br>
-<br>
-<br>
-
-
-<section id="lecture notes">
-    <h2 style="color: rgb(0, 0, 100);">Lecture Notes</h2>
-<!--
-    <p text-align=left; style="color: rgb(0, 0, 100);" > Disclaimer: these lecture notes have not been sufficienlty proof-read and certainly contain a fair amout of typos and minor errors. I'd like to thank the various students and others who pointed out the typos which I have managed to weed out. If you use this document and find any more please email me
-        </p>
--->
-        <p style="color: rgb(0, 0, 100);"><a  style="color: rgb(76, 0, 255);" href="lecture_notes\DeepNotes.pdf" target="_blank">deep learning and <br>approximation theory</a></p>
-<!--
-        <p style="color: rgb(0, 0, 100);"><a style="color: rgb(76, 0, 255);" href="C:\Users\nadav\Dropbox\nadav_dropbox\misc\nadavdym.github.io\lecture_notes\NumericalNotes.pdf" target="_blank">Numerical analysis</a></p>
--->
+        In 2018 I completed my PhD at the Weizmann Institute under 
+        <a href="http://www.wisdom.weizmann.ac.il/~ylipman/" target="_blank">Prof. Yaron Lipman</a>.
+      </p>
+      <p style="color: rgb(0, 0, 100);"><b>Email:</b> nadavdym (at) technion.ac.il</p>
+    </div>
+  </div>
 </section>
 
+<!-- Replace your team section with this -->
+<section id="team" class="container mt-5">
+  <h2 style="color: rgb(0, 0, 100);">Team</h2>
+  <h3 style="color: rgb(0, 0, 100);">Current Members</h3>
 
+  <div class="table-responsive">
+    <table class="team-table" cellpadding="6">
+      <tbody>
+        <tr>
+          <td class="name">  <a href="https://tal-amir.github.io" target="_blank">Tal Amir</a>  </td>
+          <td class="role">Research Associate</td>
+        </tr>
+        <tr>
+          <td class="name">Snir Hordan</td>
+          <td class="role">PhD student</td>
+        </tr>
+	<tr>
+          <td class="name">Yonatan Sverdlov</td>
+          <td class="role">PhD student</td>
+        </tr>
+	<tr>
+          <td class="name">Benjy Friedmann</td>
+          <td class="role">PhD student</td>
+        </tr>
+	<tr>
+          <td class="name">Yakov Mishayev</td>
+          <td class="role">Msc student</td>
+        </tr>
+	<tr>
+          <td class="name">Matan Mizrachi</td>
+          <td class="role">Msc student</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <h3 style="color: rgb(0, 0, 100);">Former Members</h3>
+
+  <div class="table-responsive">
+    <table class="team-table" cellpadding="6">
+      <tbody>
+        <tr>
+          <td class="name">Eitan Rosen</td>
+          <td class="role">Postdoc</td>
+        </tr>
+        <tr>
+          <td class="name">Yair Davidson</td>
+          <td class="role">Msc student</td>
+        </tr>
+	<tr>
+          <td class="name">Ravina Ravina</td>
+          <td class="role">Msc student</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+</section>
+
+<section id="publications" class="container mt-5">
+  <h2 style="color: rgb(0, 0, 100);">Publications</h2>
+  <p style="color: rgb(0, 0, 100);">
+    See my 
+    <a href="https://scholar.google.co.il/citations?user=qOyXmMYAAAAJ&hl=iw" target="_blank">Google Scholar</a> page.
+  </p>
+</section>
+
+<section id="lecture-notes" class="container mt-5">
+  <h2 style="color: rgb(0, 0, 100);">Lecture Notes</h2>
+  <p style="color: rgb(0, 0, 100);">
+    <a href="lecture_notes/DeepNotes.pdf" target="_blank">
+      Deep Learning and Approximation Theory
+    </a>
+  </p>
+</section>
+
+<!-- Scripts -->
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery.scrollto.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.lightbox.min.js"></script>
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/jquery.singlePageNav.min.js"></script>
 <script src="js/templatemo_script.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-52088992-1', 'weizmann.ac.il');
-  ga('require', 'linkid', 'linkid.html');
-  ga('send', 'pageview');
-</script>
 </body>
-
 </html>
