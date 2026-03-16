@@ -5,164 +5,232 @@
   <title>Nadav's Homepage</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <!-- CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <link href="css/jquery.lightbox.css" rel="stylesheet" />
   <link href="css/flexslider.css" rel="stylesheet" />
-  <link href="css/templatemo_style.css" rel="stylesheet" />
 
   <style>
+    /* 1. Global/Layout Styles */
     h1, h2, h3, p, div { text-align: left; }
-    body { background-color: rgb(0, 174, 255)  !important; }
-    header { background-color: rgb(0, 123, 255) !important; }
+    body { background-color: rgb(0, 174, 255) !important; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    header { background-color: rgb(0, 0, 250) !important; color: white; padding: 2rem 0; }
+    
+    main.container { margin-top: 4rem; } /* Added space below header */
 
-	p {
-  	margin-bottom: 0.5rem;   /* reduce from default ~1rem */
-  	line-height: 1.3;        /* tighter line spacing */
-	}
-	
-	a {
-  	color: darkblue !important;
-	}
+    p { margin-bottom: 1rem; line-height: 1.6; color: rgb(0, 0, 100); }
+    a { color: darkblue !important; font-weight: 500; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-<!-- Put this CSS in your <head> (inside <style> or your CSS file) -->
-
-  .team-table { max-width: 640px; margin: 0 auto; color: rgb(0, 0, 100); }
-  .team-table td.name { text-align: left; width: 50%; padding-lef: 12px; font-weight: 700; }
-  .team-table td.role { text-align: left; width: 50%; padding-left: 12px; }
-  /* Mobile: stack the columns and center them */
-  @media (max-width: 576px) {
-    .team-table, .team-table tbody, .team-table tr { display: block; width: 100%; }
-    .team-table td.name, .team-table td.role {
-      display: block;
-      width: 100%;
-      text-align: center;
-      padding: 6px 0;
+    /* 2. SPECIFIC FIXES FOR PHOTO AND LAYOUT */
+    .about-row {
+      display: flex;
+      align-items: flex-start; /* Aligns text start with photo top */
+      gap: 30px; /* Provides spacing between columns, replacing margins */
     }
-  }
 
+    /* Target the image container */
+    .col-md-4.about-photo-container {
+      flex: 0 0 auto; /* Don't allow this column to grow/shrink based on text */
+      width: auto;     /* Let the image define the width, subject to max-width */
+      max-width: 280px; /* **PROBLEM 1 FIX: Sets maximum width for the photo** */
+      padding: 0;
+    }
 
+    /* Style the image itself */
+    .about-photo {
+      width: 100%;     /* Fills its container width (max 280px) */
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* Target the text container */
+    .col-md-8.about-text-container {
+      flex: 1 1 auto; /* Allows this column to fill remaining space */
+      padding: 0;
+      /* **PROBLEM 2 FIX: padding ensured by .about-row gap** */
+    }
+
+    /* 3. Team Table Styles */
+    .team-table { max-width: 640px; margin: 0 auto; color: rgb(0, 0, 100); width: 100%; border-collapse: collapse; }
+    .team-table td.name { text-align: left; width: 50%; padding: 8px 12px; font-weight: 700; }
+    .team-table td.role { text-align: left; width: 50%; padding: 8px 12px; }
+
+    /* 4. Publications List */
+    .pub-list { list-style-type: none; padding-left: 0; }
+    .pub-item { margin-bottom: 1.5rem; color: rgb(0, 0, 100); }
+    .pub-title { font-weight: bold; display: block; }
+    .pub-venue { font-style: italic; color: #003366; }
+
+    /* 5. Mobile handling (Max-width 767px handles tablets and phones) */
+    @media (max-width: 767px) {
+      .about-row { display: block; gap: 0; } /* Stack elements on mobile */
+
+      .col-md-4.about-photo-container {
+        max-width: 320px; /* Allows the photo to be slightly larger when centered */
+        margin: 0 auto 2rem; /* Centers the photo with margin bottom */
+        text-align: center;
+      }
+
+      .col-md-8.about-text-container { width: 100%; }
+
+      /* Team table mobile stack */
+      .team-table, .team-table tbody, .team-table tr { display: block; width: 100%; }
+      .team-table td.name, .team-table td.role {
+        display: block; width: 100%; text-align: center; padding: 6px 0;
+      }
+    }
   </style>
 </head>
 <body>
 
-<header style="background-color: rgb(0, 0, 250); padding: 1rem;">
-  <h1 style="color: black; margin: 0;">Nadav Dym's homepage </h1>
+<header>
+  <div class="container">
+    <h1 style="margin: 0;">Nadav Dym's Homepage</h1>
+  </div>
 </header>
 
-
-<section id="templatemo_about" class="container mt-5">
-  <div class="row">
-    <div class="col-md-4">
-      <img src="images/me_3.jpg" alt="Nadav Dym" class="img-fluid" />
+<main class="container">
+  <section id="about">
+    <div class="row about-row">
+      <div class="col-md-4 about-photo-container px-0">
+        <img src="images/me_3.jpg" alt="Nadav Dym" class="about-photo" />
+      </div>
+      
+      <div class="col-md-8 about-text-container px-0">
+        <p>
+          I am a Senior Lecturer (Assistant Professor) in the Technion's Faculty of Mathematics. 
+          My research focuses on applying various mathematical tools for the development and 
+          theoretical analysis of machine learning algorithms, with a focus on group equivariant learning and graph neural networks. 
+        </p>
+        <p>
+          In the years 2018–2021 I was an Assistant Research Professor at Duke University, 
+          hosted by 
+          <a href="https://ece.duke.edu/faculty/ingrid-daubechies" target="_blank">Prof. Ingrid Daubechies</a>.
+   
+          In 2018 I completed my PhD at the Weizmann Institute under 
+          <a href="http://www.wisdom.weizmann.ac.il/~ylipman/" target="_blank">Prof. Yaron Lipman</a>.
+        </p>
+        <p><b>Email:</b> nadavdym (at) technion.ac.il</p>
+      </div>
     </div>
-    <div class="col-md-8">
-<!--      <h2 style="color: rgb(0, 0, 100);">Nadav Dym</h2> -->
-<!--      <p style="color: rgb(0, 0, 100);">. -->
-<p>
-        I am a Senior Lecturer (Assistant Professor) in the Technion's faculty of mathematics. 
-        My research focuses on applying various mathematical tools for the development and 
-        theoretical analysis of machine learning algorithms, with a focus on group equivariant learning and graph neural networks. 
-      </p>
-      <p style="color: rgb(0, 0, 100);">
-        In the years 2018–2021 I was an Assistant Research Professor at Duke University, 
-        hosted by 
-        <a href="https://ece.duke.edu/faculty/ingrid-daubechies" target="_blank">Prof. Ingrid Daubechies</a>.
- 
-        In 2018 I completed my PhD at the Weizmann Institute under 
-        <a href="http://www.wisdom.weizmann.ac.il/~ylipman/" target="_blank">Prof. Yaron Lipman</a>.
-      </p>
-      <p style="color: rgb(0, 0, 100);"><b>Email:</b> nadavdym (at) technion.ac.il</p>
+  </section>
+
+  <hr style="margin: 4rem 0; border-top: 1px solid rgba(0,0,0,0.15);">
+
+  <section id="team">
+    <h2 style="color: rgb(0, 0, 100);">Team</h2>
+    <h3 style="color: rgb(0, 0, 100);">Current Members</h3>
+    <div class="table-responsive">
+      <table class="team-table">
+        <tbody>
+          <tr>
+            <td class="name"><a href="https://tal-amir.github.io" target="_blank">Tal Amir</a></td>
+            <td class="role">Research Associate</td>
+          </tr>
+          <tr>
+            <td class="name"><a href="https://snirhordan.github.io/" target="_blank">Snir Hordan</a></td>
+            <td class="role">PhD student</td>
+          </tr>
+          <tr>
+            <td class="name">Yonatan Sverdlov</td>
+            <td class="role">PhD student</td>
+          </tr>
+          <tr>
+            <td class="name">Benjy Friedmann</td>
+            <td class="role">PhD student</td>
+          </tr>
+          <tr>
+            <td class="name">Matan Mizrachi</td>
+            <td class="role">MSc student</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </div>
-</section>
 
-<!-- Replace your team section with this -->
-<section id="team" class="container mt-5">
-  <h2 style="color: rgb(0, 0, 100);">Team</h2>
-  <h3 style="color: rgb(0, 0, 100);">Current Members</h3>
-
-  <div class="table-responsive">
-    <table class="team-table" cellpadding="6">
-      <tbody>
-        <tr>
-          <td class="name">  <a href="https://tal-amir.github.io" target="_blank">Tal Amir</a>  </td>
-          <td class="role">Research Associate</td>
-        </tr>
-        <tr>
-          <td class="name">Snir Hordan</td>
-          <td class="role">PhD student</td>
-        </tr>
+    <h3 style="color: rgb(0, 0, 100); margin-top: 30px;">Former Members</h3>
+    <div class="table-responsive">
+      <table class="team-table">
+        <tbody>
+          <tr>
+            <td class="name">Eitan Rosen</td>
+            <td class="role">Postdoc</td>
+          </tr>
 	<tr>
-          <td class="name">Yonatan Sverdlov</td>
-          <td class="role">PhD student</td>
-        </tr>
-	<tr>
-          <td class="name">Benjy Friedmann</td>
-          <td class="role">PhD student</td>
-        </tr>
-	<tr>
-          <td class="name">Yakov Mishayev</td>
-          <td class="role">Msc student</td>
-        </tr>
-	<tr>
-          <td class="name">Matan Mizrachi</td>
-          <td class="role">Msc student</td>
-        </tr>
-      </tbody>
-    </table>
+            <td class="name">Yakov Mishayev</td>
+            <td class="role">MSc student</td>
+          </tr>
+          <tr>
+            <td class="name">Yair Davidson</td>
+            <td class="role">MSc student</td>
+          </tr>
+          <tr>
+            <td class="name">Ravina Ravina</td>
+            <td class="role">MSc student</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  </div>
+  <section id="publications" class="mt-5">
+    <h2 style="color: rgb(0, 0, 100);">Selected Publications</h2>
+    
+    <ul class="pub-list">
+ 	<li class="pub-item">
+        <span class="pub-title"> <a href="https://openreview.net/forum?id=3dnG7LcKxT" target="_blank"> Spectral Graph Neural Networks are Incomplete on Graphs with a Simple Spectrum </a></span>
+        Snir Hordan and Nadav Dym.<br>
+        <span class="pub-venue">NeurIPS 2025 (Spotlight)</span>
+      </li>
+<li class="pub-item">
+        <span class="pub-title"> <a href="https://openreview.net/forum?id=NY7aEek0mi" target="_blank"> On the Expressive Power of Sparse Geometric MPNNs </a></span>
+       Yonatan Sverdlov and Nadav Dym.<br>
+        <span class="pub-venue">ICLR 2025</span>
+      </li>
+<li class="pub-item">
+        <span class="pub-title"> <a href="https://link.springer.com/article/10.1007/s10208-024-09641-2" target="_blank"> Low-Dimensional Invariant Embeddings for Universal Geometric Learning </a></span>
+       Steven J. Gortler and Nadav Dym.<br>
+        <span class="pub-venue">Foundations of Computational Mathematics 2024</span>
+      </li>
+      <li class="pub-item">
+ 	<span class="pub-title"> <a href="https://openreview.net/forum?id=P7KIGdgW8S" target="_blank"> On the Hölder Stability of Multiset and Graph Neural Networks </a></span>
+        Yair Davidson and Nadav Dym.<br>
+        <span class="pub-venue">ICLR 2025 (Oral)</span>
+      </li>
+<li class="pub-item">
+        <span class="pub-title"> <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/84b686f7cc7b7751e9aaac0da74f755a-Abstract-Conference.html" target="_blank"> Neural Injective Functions for Multisets, Measures and Graphs via a Finite Witness Theorem </a></span>
+        Tal Amir, Steven J. Gortler, Ilai Avni, Ravina Ravina and Nadav Dym.<br>
+        <span class="pub-venue">NeurIPS 2023 (Spotlight)</span>
+      </li>
+     <li class="pub-item">
+        <span class="pub-title"> <a href="https://openaccess.thecvf.com/content_ICCV_2019/html/Dym_Linearly_Converging_Quasi_Branch_and_Bound_Algorithms_for_Global_Rigid_ICCV_2019_paper.html" target="_blank"> Linearly Converging Quasi Branch and Bound Algorithms for Global Rigid Registration</a></span>
+      Nadav Dym and Shahar Ziv Kovalsky.<br>
+        <span class="pub-venue">ICCV 2019 (Oral)</span>
+      </li>
+    </ul>
 
+    <p>
+      See all publications on my 
+      <a href="https://scholar.google.co.il/citations?user=qOyXmMYAAAAJ&hl=iw" target="_blank">Google Scholar</a> page.
+    </p>
+  </section>
 
-  <h3 style="color: rgb(0, 0, 100);">Former Members</h3>
+  <section id="lecture-notes" class="mt-5 mb-5">
+    <h2 style="color: rgb(0, 0, 100);">Lecture Notes</h2>
+    <p>
+      <a href="lecture_notes/DeepNotes.pdf" target="_blank">
+        Deep Learning and Approximation Theory
+      </a>
+    </p>
+  </section>
+</main>
 
-  <div class="table-responsive">
-    <table class="team-table" cellpadding="6">
-      <tbody>
-        <tr>
-          <td class="name">Eitan Rosen</td>
-          <td class="role">Postdoc</td>
-        </tr>
-        <tr>
-          <td class="name">Yair Davidson</td>
-          <td class="role">Msc student</td>
-        </tr>
-	<tr>
-          <td class="name">Ravina Ravina</td>
-          <td class="role">Msc student</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-</section>
-
-<section id="publications" class="container mt-5">
-  <h2 style="color: rgb(0, 0, 100);">Publications</h2>
-  <p style="color: rgb(0, 0, 100);">
-    See my 
-    <a href="https://scholar.google.co.il/citations?user=qOyXmMYAAAAJ&hl=iw" target="_blank">Google Scholar</a> page.
-  </p>
-</section>
-
-<section id="lecture-notes" class="container mt-5">
-  <h2 style="color: rgb(0, 0, 100);">Lecture Notes</h2>
-  <p style="color: rgb(0, 0, 100);">
-    <a href="lecture_notes/DeepNotes.pdf" target="_blank">
-      Deep Learning and Approximation Theory
-    </a>
-  </p>
-</section>
-
-<!-- Scripts -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.lightbox.min.js"></script>
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/jquery.singlePageNav.min.js"></script>
-<script src="js/templatemo_script.js"></script>
 
 </body>
 </html>
